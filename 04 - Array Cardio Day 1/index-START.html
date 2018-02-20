@@ -166,6 +166,46 @@
     }, {});
 
     console.log(transportation);
+
+    // 9. Counting instances of values in an object
+    // Sum the instances of each of these
+    const names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice', 'Bruce'];
+
+    const countedNames = names.reduce((allNames, name) => {
+      if (name in allNames) {
+        allNames[name]++;
+      } else {
+        allNames[name] = 1;
+      }
+      return allNames;
+    }, {});
+    console.log(countedNames);
+    // { Alice: 2, Bob: 1, Tiff: 1, Bruce: 2}
+
+    // 10. Bonding arrays contained in an array of objects 
+    // using the spread operator and initialValue
+    const friends = [{
+        name: 'Anna',
+        books: ['Bible', 'Harry Potter'],
+        age: 21
+      },
+      {
+        name: 'Bob',
+        books: ['War and peace', 'Romeo and Juliet'],
+        age: 26
+      },
+      {
+        name: 'Alice',
+        books: ['The Lord of the Rings', 'The Shining'],
+        age: 18
+      }
+    ];
+
+    // allbooks - list which will contain all friends' books + 
+    // additional list contained in initialValue
+    let allbooks = friends.reduce((prev, curr) => {
+      return [...prev, ...curr.books];
+    }, ['Alphabet']);
   </script>
 </body>
 
